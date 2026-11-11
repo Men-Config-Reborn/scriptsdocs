@@ -60,6 +60,17 @@ end) -- return function for set back to like 0
 window:Dropdown("Drop me!","option1" --[[the def]],{"option1","option2","option3","option4"} --[[the options]],function(value)
 MenHub:Notify(value)
 end) -- return function for set back to like option1
+
+window:Multibox("Pick Someone!",{"option1","option3"} --[[the def]],{"option1","option2","option3","option4"} --[[the options]],function(value)
+for i,v in value do
+MenHub:Notify(i)
+MenHub:Notify(v)
+end
+end) -- return function for set back to like {"option2","option4")
+
+window:Textbox("Enter!","Def Text" --[[the def text ofc]],"Showed Text" --[[Showed text like idk]],function(value)
+MenHub:Notify(value)
+end) -- return function for set back to like "Next Def Text"
   
   </pre>
   <h1>Misc</h1>
@@ -74,13 +85,13 @@ MenHub:ListOption() -- list every thing that you have
   <pre>
 local MenHubapi = _G.Mhapi -- the way is same same as normal MenHub var but you cant override menhub things code
   </pre>
-	<h1>OutDoor Some Vars Support (version >= GGFUCKINGEZ only)</h1>
+	<h1>OutDoor Some Vars Support (version >= VibeCoded only)</h1>
 	  <pre>
 local MenHubapi = _G.Mhapi -- loading the menhub api
 local Data = MenHubapi.DoorCloseOut -- data that never outdoor data can read or run
 
-print(Data.LocalFighter) -- will return your fighter (useful as fuck)
-print(Data.CurrectWeapon) -- will return your correct weapon (clientItem)
+print(Data.GetLocalFighter()) -- will return your fighter (useful as fuck)
+print(Data.GetCurrectWeapon()) -- will return your correct weapon (clientItem)
 		  
 print(Data.RageBotTarget) -- will return Target Character of ragebot targeting system
 print(Data.SilentTarget) -- same as ragebot but just for silent
@@ -88,6 +99,7 @@ print(Data.AimbotTarget) -- same as ragebot but just for aimbot
 print(Data.StartingtoBait) -- will false it is not in ragebot enabled and otc, if is starting to bait the target then will return true
 
 Data.ForceVoid(true) -- making the ragebot to always voiding, to disblad that just make it false
+Data.SetBaiting(true) -- making the ragebot baiting to enabled
   </pre>
 </body>
 </html>
